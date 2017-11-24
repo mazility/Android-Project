@@ -33,6 +33,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+
+        fragmentManager.beginTransaction()
+                .add(R.id.main_fragment_container, HomeFragment.newInstance(), "HomeFragment")
+                .commit();
     }
 
     override fun onBackPressed() {
@@ -59,29 +63,48 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_home -> {
-                val intent = Intent(this@MainActivity, MainActivity::class.java)
-                intent.putExtra("key","Kotlin")
-                startActivity(intent)
+                toolbar.setTitle("Home")
+                fragmentManager
+                        .beginTransaction()
+                        .replace(R.id.main_fragment_container, HomeFragment.newInstance(), "BulletinFragment")
+                        .commit()
+//                val intent = Intent(this@MainActivity, MainActivity::class.java)
+//                intent.putExtra("key","Kotlin")
+//                startActivity(intent)
             }
             R.id.nav_bulletin -> {
-                val intent = Intent(this@MainActivity, Bulletin::class.java)
-                intent.putExtra("key","Kotlin")
-                startActivity(intent)
+                toolbar.setTitle("Bulletin")
+                fragmentManager
+                        .beginTransaction()
+                        .replace(R.id.main_fragment_container, BulletinFragment.newInstance(), "BulletinFragment")
+                        .commit()
+//                val intent = Intent(this@MainActivity, Bulletin::class.java)
+//                intent.putExtra("key","Kotlin")
+//                startActivity(intent)
             }
             R.id.nav_event -> {
-                val intent = Intent(this@MainActivity, Event::class.java)
-                intent.putExtra("key","Kotlin")
-                startActivity(intent)
+                toolbar.setTitle("Event")
+                fragmentManager
+                        .beginTransaction()
+                        .replace(R.id.main_fragment_container, EventFragment.newInstance(), "EventFragment")
+                        .commit()
+//                val intent = Intent(this@MainActivity, Event::class.java)
+//                intent.putExtra("key","Kotlin")
+//                startActivity(intent)
             }
             R.id.nav_minigame -> {
-                val intent = Intent(this@MainActivity, Minigame::class.java)
-                intent.putExtra("key","Kotlin")
-                startActivity(intent)
+                toolbar.setTitle("Home")
+                fragmentManager
+                        .beginTransaction()
+                        .replace(R.id.main_fragment_container, MinigameFragment.newInstance(), "MinigameFragment")
+                        .commit()
+//                val intent = Intent(this@MainActivity, Minigame::class.java)
+//                intent.putExtra("key","Kotlin")
+//                startActivity(intent)
             }
             R.id.nav_logout -> {
                 val intent = Intent(this@MainActivity, LoginActivity::class.java)

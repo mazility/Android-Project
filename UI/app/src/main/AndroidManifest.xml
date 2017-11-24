@@ -18,20 +18,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Bulletin"
-            android:label="@string/title_activity_bulletin"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Event"
-            android:label="@string/title_activity_event"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Minigame"
-            android:label="@string/title_activity_minigame"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
