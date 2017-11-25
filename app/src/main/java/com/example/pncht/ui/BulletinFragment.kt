@@ -38,11 +38,11 @@ class BulletinFragment : Fragment() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        listOfFaculties = rs.getListOfFaculty()
+        /*listOfFaculties = rs.getListOfFaculty()
 
         mListView = R.id.list_faculties as ListView
 
-        /*val itemsAdapter = SimpleAdapter(this, R.layout.faculty_item, arrayOf<String>("FID", "Name", "Icon"), intArrayOf(R.id.FID, R.id.Name, R.id.Icon))
+        val itemsAdapter = SimpleAdapter(this, R.layout.faculty_item, arrayOf<String>("FID", "Name", "Icon"), intArrayOf(R.id.FID, R.id.Name, R.id.Icon))
 
         SimpleAdapter(this@MainActivity, listOfFaculties, R.layout.faculty_item,
                 arrayOf(KEY_VER, KEY_NAME, KEY_API),
