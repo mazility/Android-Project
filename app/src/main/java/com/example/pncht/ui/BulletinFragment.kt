@@ -4,15 +4,14 @@ import Model.Faculty
 import ResApi.ResApiProvider
 import android.os.Bundle
 import android.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ListView
-import android.widget.SimpleAdapter
-import android.widget.ArrayAdapter
-
-
-
+import com.github.kittinunf.fuel.Fuel
+import kotlinx.android.synthetic.main.fragment_bulletin.*
 
 /**
  * A simple [Fragment] subclass.
@@ -20,8 +19,8 @@ import android.widget.ArrayAdapter
 class BulletinFragment : Fragment() {
 
     var listOfFaculties: ArrayList<Faculty>? = null
-    var mListView: ListView? = null
-
+    var ba: BulletinAdapter?=null
+    //var mListView: ListView? = null
     val rs = ResApiProvider()
 
     companion object {
@@ -33,24 +32,35 @@ class BulletinFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bulletin, container, false)
-    }
+        val root = inflater.inflate(R.layout.fragment_bulletin, container, false)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
         /*listOfFaculties = rs.getListOfFaculty()
 
-        mListView = R.id.list_faculties as ListView
+        ba = BulletinAdapter(this, listOfFaculties!!)
+        var list_faculties = root.findViewById<ListView>(R.id.list_faculties)
+        list_faculties.setAdapter(ba)
+        //val redcolor = Color.parseColor("#FF0000")
+        //list_faculties.setBackgroundColor(redcolor)
+        //list_faculties.adapter = BulletinAdapter(BulletinFragment())
 
-        val itemsAdapter = SimpleAdapter(this, R.layout.faculty_item, arrayOf<String>("FID", "Name", "Icon"), intArrayOf(R.id.FID, R.id.Name, R.id.Icon))
+        if(listOfFaculties != null){
+            Log.i("Adapter","list not null")
+            Log.i("Adapter", listOfFaculties!!.size.toString())
+        }else{
+            Log.i("Adapter","list is null")
+        }*/
 
-        SimpleAdapter(this@MainActivity, listOfFaculties, R.layout.faculty_item,
-                arrayOf(KEY_VER, KEY_NAME, KEY_API),
-                intArrayOf(R.id.version, R.id.name, R.id.api))*/
-
-        super.onCreate(savedInstanceState)
+        root.findViewById<Button>(R.id.btn_update).setOnClickListener(
+                View.OnClickListener {view ->
+                    //ba = BulletinAdapter(this, listOfFaculties!!)
+                    //var list_faculties = root.findViewById<ListView>(R.id.list_faculties)
+                    list_faculties.setAdapter(ba)
+                }
+        )
+        // Inflate the layout for this fragment
+        return root
     }
-
 
 
 }// Required empty public constructor
+
