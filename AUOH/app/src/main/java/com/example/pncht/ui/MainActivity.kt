@@ -1,5 +1,6 @@
 package com.example.pncht.ui
 
+import ResApi.ResApiProvider
 import android.app.FragmentTransaction
 import android.content.Intent
 import android.os.Bundle
@@ -20,7 +21,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
         setSupportActionBar(toolbar)
-
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //                startActivity(intent)
             }
             R.id.nav_bulletin -> {
-                toolbar.setTitle("Bulletin")
+                toolbar.setTitle("Faculties")
                 fragmentManager
                         .beginTransaction()
                         .replace(R.id.main_fragment_container, BulletinFragment.newInstance(), "BulletinFragment")
